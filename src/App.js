@@ -1,5 +1,5 @@
 import React from 'react';
-import PropsTypes from 'prop-types';
+import PropsTypes from 'prop-types'; 
 
 class App extends React.Component {
   state = {
@@ -13,7 +13,18 @@ class App extends React.Component {
     this.setState(current => ({count: current.count - 1}));
   }
 
+  componentDidMount() { // 랜더링 이후 즉시 호출되는 함수
+    console.log('Componenet rendered');
+  }
+  componentDidUpdate() { // 랜더링이 완료된 직후에 호출
+    console.log('I just updated');
+  }
+  componentWillUnmount() { // 컴포넌트가 사라지기전에 호출
+    console.log('Goodbye, curel world');
+  }
+
   render() {
+    console.log('I am rendering');
     return (
       <div>
         <h1>The number is: {this.state.count}</h1>
@@ -25,8 +36,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// setState란
-// React에서는 state를 직접 조작할 수 없기에 state의 변경이 필요할때 사용
-// state가 변경되면 자동으로 다시 랜더링됨
