@@ -40,6 +40,7 @@ body,
 
 .movies .movie {
   width: 45%;
+  min-width: 562px;
   background-color: white;
   margin-bottom: 70px;
   display: flex;
